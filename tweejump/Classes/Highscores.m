@@ -37,7 +37,7 @@
 //	NSLog(@"currentScore = %d",currentScore);
 	
 	[self loadCurrentPlayer];
-	[self loadHighscores];
+    [self loadHighscores];
 	[self updateHighscores];
 	if(currentScorePosition >= 0) {
 		[self saveHighscores];
@@ -45,9 +45,10 @@
 	
 	CCSpriteBatchNode *batchNode = (CCSpriteBatchNode*)[self getChildByTag:kSpriteManager];
 	
-	CCSprite *title = [CCSprite spriteWithTexture:[batchNode texture] rect:CGRectMake(608,192,225,57)];
-	[batchNode addChild:title z:5];
-	title.position = ccp(160,420);
+    //remove High scores tiltle
+	//CCSprite *title = [CCSprite spriteWithTexture:[batchNode texture] rect:CGRectMake(608,192,225,57)];
+	//[batchNode addChild:title z:5];
+	//title.position = ccp(160,420);
 
 	float start_y = 360.0f;
 	float step = 27.0f;
@@ -104,7 +105,7 @@
 	currentPlayer = nil;
 	currentPlayer = [defaults objectForKey:@"player"];
 	if(!currentPlayer) {
-		currentPlayer = @"anonymous";
+		currentPlayer = @"小小马";
 	}
 
 //	NSLog(@"currentPlayer = %@",currentPlayer);
@@ -121,16 +122,16 @@
 	[highscores removeAllObjects];
 #endif
 	if([highscores count] == 0) {
-		[highscores addObject:[NSArray arrayWithObjects:@"tweejump",[NSNumber numberWithInt:1000000],nil]];
-		[highscores addObject:[NSArray arrayWithObjects:@"tweejump",[NSNumber numberWithInt:750000],nil]];
-		[highscores addObject:[NSArray arrayWithObjects:@"tweejump",[NSNumber numberWithInt:500000],nil]];
-		[highscores addObject:[NSArray arrayWithObjects:@"tweejump",[NSNumber numberWithInt:250000],nil]];
-		[highscores addObject:[NSArray arrayWithObjects:@"tweejump",[NSNumber numberWithInt:100000],nil]];
-		[highscores addObject:[NSArray arrayWithObjects:@"tweejump",[NSNumber numberWithInt:50000],nil]];
-		[highscores addObject:[NSArray arrayWithObjects:@"tweejump",[NSNumber numberWithInt:20000],nil]];
-		[highscores addObject:[NSArray arrayWithObjects:@"tweejump",[NSNumber numberWithInt:10000],nil]];
-		[highscores addObject:[NSArray arrayWithObjects:@"tweejump",[NSNumber numberWithInt:5000],nil]];
-		[highscores addObject:[NSArray arrayWithObjects:@"tweejump",[NSNumber numberWithInt:1000],nil]];
+		[highscores addObject:[NSArray arrayWithObjects:@"神马老板",[NSNumber numberWithInt:1000000],nil]];
+		[highscores addObject:[NSArray arrayWithObjects:@"神马老大",[NSNumber numberWithInt:750000],nil]];
+		[highscores addObject:[NSArray arrayWithObjects:@"神马",[NSNumber numberWithInt:500000],nil]];
+		[highscores addObject:[NSArray arrayWithObjects:@"雷天马",[NSNumber numberWithInt:250000],nil]];
+		[highscores addObject:[NSArray arrayWithObjects:@"风天马",[NSNumber numberWithInt:100000],nil]];
+		[highscores addObject:[NSArray arrayWithObjects:@"火天马",[NSNumber numberWithInt:50000],nil]];
+		[highscores addObject:[NSArray arrayWithObjects:@"北天马",[NSNumber numberWithInt:20000],nil]];
+		[highscores addObject:[NSArray arrayWithObjects:@"南天马",[NSNumber numberWithInt:10000],nil]];
+		[highscores addObject:[NSArray arrayWithObjects:@"大天马",[NSNumber numberWithInt:5000],nil]];
+		[highscores addObject:[NSArray arrayWithObjects:@"小天马",[NSNumber numberWithInt:1000],nil]];
 	}
 #ifdef RESET_DEFAULTS	
 	[self saveHighscores];
@@ -186,11 +187,11 @@
 //	NSLog(@"button2Callback");
 	
 	changePlayerAlert = [UIAlertView new];
-	changePlayerAlert.title = @"Change Player";
+	changePlayerAlert.title = @"修改名称";
 	changePlayerAlert.message = @"\n";
 	changePlayerAlert.delegate = self;
-	[changePlayerAlert addButtonWithTitle:@"Save"];
-	[changePlayerAlert addButtonWithTitle:@"Cancel"];
+	[changePlayerAlert addButtonWithTitle:@"保存"];
+	[changePlayerAlert addButtonWithTitle:@"取消"];
 
 	changePlayerTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 45, 245, 27)];
 	changePlayerTextField.borderStyle = UITextBorderStyleRoundedRect;
