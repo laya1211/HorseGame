@@ -27,6 +27,8 @@
 		18FFB83D193DD54F00FCE1C5 /* horse_run_right_05.tga in Resources */ = {isa = PBXBuildFile; fileRef = 18FFB82F193DD54F00FCE1C5 /* horse_run_right_05.tga */; };
 		18FFB83E193DD54F00FCE1C5 /* horse_run_right_06.tga in Resources */ = {isa = PBXBuildFile; fileRef = 18FFB830193DD54F00FCE1C5 /* horse_run_right_06.tga */; };
 		18FFB83F193DD54F00FCE1C5 /* horse_run_right_07.tga in Resources */ = {isa = PBXBuildFile; fileRef = 18FFB831193DD54F00FCE1C5 /* horse_run_right_07.tga */; };
+		2CFBB6E6195878640076F7D7 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBB6E4195878640076F7D7 /* Icon-60.png */; };
+		2CFBB6E7195878640076F7D7 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBB6E5195878640076F7D7 /* Icon-60@2x.png */; };
 		F49E735C15ACCF46009C8E84 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49E735B15ACCF46009C8E84 /* QuartzCore.framework */; };
 		F49E735E15ACCF46009C8E84 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49E735D15ACCF46009C8E84 /* OpenGLES.framework */; };
 		F49E736015ACCF46009C8E84 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49E735F15ACCF46009C8E84 /* OpenAL.framework */; };
@@ -37,10 +39,6 @@
 		F49E736A15ACCF46009C8E84 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49E736915ACCF46009C8E84 /* CoreGraphics.framework */; };
 		F49E736E15ACCF46009C8E84 /* Default_before.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E736D15ACCF46009C8E84 /* Default_before.png */; };
 		F49E737015ACCF46009C8E84 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E736F15ACCF46009C8E84 /* fps_images.png */; };
-		F49E737215ACCF47009C8E84 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E737115ACCF47009C8E84 /* Icon-72.png */; };
-		F49E737415ACCF47009C8E84 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E737315ACCF47009C8E84 /* Icon-Small-50.png */; };
-		F49E737615ACCF47009C8E84 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E737515ACCF47009C8E84 /* Icon-Small.png */; };
-		F49E737815ACCF47009C8E84 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E737715ACCF47009C8E84 /* Icon-Small@2x.png */; };
 		F49E737A15ACCF47009C8E84 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F49E737915ACCF47009C8E84 /* Icon.png */; };
 		F49E737F15ACCF47009C8E84 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F49E737E15ACCF47009C8E84 /* iTunesArtwork */; };
 		F49E738415ACCF47009C8E84 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F49E738315ACCF47009C8E84 /* CCAction.m */; };
@@ -158,6 +156,8 @@
 		18FFB82F193DD54F00FCE1C5 /* horse_run_right_05.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = horse_run_right_05.tga; sourceTree = "<group>"; };
 		18FFB830193DD54F00FCE1C5 /* horse_run_right_06.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = horse_run_right_06.tga; sourceTree = "<group>"; };
 		18FFB831193DD54F00FCE1C5 /* horse_run_right_07.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = horse_run_right_07.tga; sourceTree = "<group>"; };
+		2CFBB6E4195878640076F7D7 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60.png"; path = "Resources/Icon-60.png"; sourceTree = "<group>"; };
+		2CFBB6E5195878640076F7D7 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60@2x.png"; path = "Resources/Icon-60@2x.png"; sourceTree = "<group>"; };
 		F49E735715ACCF46009C8E84 /* tweejump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tweejump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49E735B15ACCF46009C8E84 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F49E735D15ACCF46009C8E84 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -169,10 +169,6 @@
 		F49E736915ACCF46009C8E84 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F49E736D15ACCF46009C8E84 /* Default_before.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default_before.png; path = Resources/Default_before.png; sourceTree = "<group>"; };
 		F49E736F15ACCF46009C8E84 /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = Resources/fps_images.png; sourceTree = "<group>"; };
-		F49E737115ACCF47009C8E84 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
-		F49E737315ACCF47009C8E84 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
-		F49E737515ACCF47009C8E84 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
-		F49E737715ACCF47009C8E84 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		F49E737915ACCF47009C8E84 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
 		F49E737B15ACCF47009C8E84 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
 		F49E737D15ACCF47009C8E84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
@@ -472,6 +468,8 @@
 		F49E736C15ACCF46009C8E84 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CFBB6E4195878640076F7D7 /* Icon-60.png */,
+				2CFBB6E5195878640076F7D7 /* Icon-60@2x.png */,
 				18FFB822193DD54F00FCE1C5 /* run_left */,
 				18FFB82A193DD54F00FCE1C5 /* run_right */,
 				F4D0CBD815ACD027007C74DF /* Fonts */,
@@ -481,10 +479,6 @@
 				18AFF34A1926194200C5DAF0 /* Default_320x568.png */,
 				18AFF34C19261B8400C5DAF0 /* Default.png */,
 				F49E736F15ACCF46009C8E84 /* fps_images.png */,
-				F49E737115ACCF47009C8E84 /* Icon-72.png */,
-				F49E737315ACCF47009C8E84 /* Icon-Small-50.png */,
-				F49E737515ACCF47009C8E84 /* Icon-Small.png */,
-				F49E737715ACCF47009C8E84 /* Icon-Small@2x.png */,
 				F49E737915ACCF47009C8E84 /* Icon.png */,
 				F49E737B15ACCF47009C8E84 /* Icon@2x.png */,
 				F49E737D15ACCF47009C8E84 /* Info.plist */,
@@ -799,6 +793,11 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = Symetrix;
+				TargetAttributes = {
+					F49E735615ACCF46009C8E84 = {
+						DevelopmentTeam = 5R7946A7BQ;
+					};
+				};
 			};
 			buildConfigurationList = F49E735115ACCF46009C8E84 /* Build configuration list for PBXProject "tweejump" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -826,19 +825,15 @@
 				18FFB834193DD54F00FCE1C5 /* horse_run_left_03.tga in Resources */,
 				F49E736E15ACCF46009C8E84 /* Default_before.png in Resources */,
 				F49E737015ACCF46009C8E84 /* fps_images.png in Resources */,
-				F49E737215ACCF47009C8E84 /* Icon-72.png in Resources */,
 				18AFF34B1926194200C5DAF0 /* Default_320x568.png in Resources */,
 				18FFB839193DD54F00FCE1C5 /* horse_run_right_01.tga in Resources */,
-				F49E737415ACCF47009C8E84 /* Icon-Small-50.png in Resources */,
 				18F6A53F1929D0E100B11C7F /* sprites_two.png in Resources */,
 				18FFB835193DD54F00FCE1C5 /* horse_run_left_04.tga in Resources */,
 				18FFB832193DD54F00FCE1C5 /* horse_run_left_01.tga in Resources */,
 				18FFB833193DD54F00FCE1C5 /* horse_run_left_02.tga in Resources */,
 				18FFB836193DD54F00FCE1C5 /* horse_run_left_05.tga in Resources */,
 				18AFF3491926189700C5DAF0 /* Default_640x1136.png in Resources */,
-				F49E737615ACCF47009C8E84 /* Icon-Small.png in Resources */,
 				18AFF34D19261B8400C5DAF0 /* Default.png in Resources */,
-				F49E737815ACCF47009C8E84 /* Icon-Small@2x.png in Resources */,
 				1825A1F319271EC5003E8C5D /* sprites.png in Resources */,
 				18FFB83B193DD54F00FCE1C5 /* horse_run_right_03.tga in Resources */,
 				18FFB837193DD54F00FCE1C5 /* horse_run_left_06.tga in Resources */,
@@ -846,6 +841,7 @@
 				18FFB83A193DD54F00FCE1C5 /* horse_run_right_02.tga in Resources */,
 				F49E737F15ACCF47009C8E84 /* iTunesArtwork in Resources */,
 				18FFB83F193DD54F00FCE1C5 /* horse_run_right_07.tga in Resources */,
+				2CFBB6E6195878640076F7D7 /* Icon-60.png in Resources */,
 				18FFB83E193DD54F00FCE1C5 /* horse_run_right_06.tga in Resources */,
 				18F6A5451929F5C000B11C7F /* sprites_new.png in Resources */,
 				18FFB83C193DD54F00FCE1C5 /* horse_run_right_04.tga in Resources */,
@@ -853,6 +849,7 @@
 				F4D0CBE015ACD027007C74DF /* bitmapFont.png in Resources */,
 				18FFB838193DD54F00FCE1C5 /* horse_run_left_07.tga in Resources */,
 				F4D0CBE115ACD027007C74DF /* changePlayerButton.png in Resources */,
+				2CFBB6E7195878640076F7D7 /* Icon-60@2x.png in Resources */,
 				F4D0CBE215ACD027007C74DF /* playAgainButton.png in Resources */,
 				F4D0CBE315ACD027007C74DF /* sprites_before.png in Resources */,
 			);
@@ -1004,14 +1001,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = tweejump/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = tweejump/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "F8A00D1B-B5DA-4903-9C25-BDB4E4F7357E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1020,13 +1020,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = tweejump/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = tweejump/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "F8A00D1B-B5DA-4903-9C25-BDB4E4F7357E";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
