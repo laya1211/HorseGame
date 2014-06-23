@@ -158,7 +158,7 @@
 		18FFB831193DD54F00FCE1C5 /* horse_run_right_07.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = horse_run_right_07.tga; sourceTree = "<group>"; };
 		2CFBB6E4195878640076F7D7 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60.png"; path = "Resources/Icon-60.png"; sourceTree = "<group>"; };
 		2CFBB6E5195878640076F7D7 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60@2x.png"; path = "Resources/Icon-60@2x.png"; sourceTree = "<group>"; };
-		F49E735715ACCF46009C8E84 /* tweejump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tweejump.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F49E735715ACCF46009C8E84 /* HorseJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HorseJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49E735B15ACCF46009C8E84 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F49E735D15ACCF46009C8E84 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		F49E735F15ACCF46009C8E84 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -429,7 +429,7 @@
 		F49E735815ACCF46009C8E84 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F49E735715ACCF46009C8E84 /* tweejump.app */,
+				F49E735715ACCF46009C8E84 /* HorseJump.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -768,9 +768,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F49E735615ACCF46009C8E84 /* tweejump */ = {
+		F49E735615ACCF46009C8E84 /* HorseJump */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F49E74C915ACCF4A009C8E84 /* Build configuration list for PBXNativeTarget "tweejump" */;
+			buildConfigurationList = F49E74C915ACCF4A009C8E84 /* Build configuration list for PBXNativeTarget "HorseJump" */;
 			buildPhases = (
 				F49E735315ACCF46009C8E84 /* Sources */,
 				F49E735415ACCF46009C8E84 /* Frameworks */,
@@ -780,9 +780,9 @@
 			);
 			dependencies = (
 			);
-			name = tweejump;
+			name = HorseJump;
 			productName = tweejump;
-			productReference = F49E735715ACCF46009C8E84 /* tweejump.app */;
+			productReference = F49E735715ACCF46009C8E84 /* HorseJump.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -799,7 +799,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F49E735115ACCF46009C8E84 /* Build configuration list for PBXProject "tweejump" */;
+			buildConfigurationList = F49E735115ACCF46009C8E84 /* Build configuration list for PBXProject "HorseJump" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -811,7 +811,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F49E735615ACCF46009C8E84 /* tweejump */,
+				F49E735615ACCF46009C8E84 /* HorseJump */,
 			);
 		};
 /* End PBXProject section */
@@ -1010,7 +1010,7 @@
 				INFOPLIST_FILE = tweejump/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HorseJump;
 				PROVISIONING_PROFILE = "F8A00D1B-B5DA-4903-9C25-BDB4E4F7357E";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1028,7 +1028,7 @@
 				INFOPLIST_FILE = tweejump/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HorseJump;
 				PROVISIONING_PROFILE = "F8A00D1B-B5DA-4903-9C25-BDB4E4F7357E";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -1038,7 +1038,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F49E735115ACCF46009C8E84 /* Build configuration list for PBXProject "tweejump" */ = {
+		F49E735115ACCF46009C8E84 /* Build configuration list for PBXProject "HorseJump" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F49E74C715ACCF4A009C8E84 /* Debug */,
@@ -1047,7 +1047,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F49E74C915ACCF4A009C8E84 /* Build configuration list for PBXNativeTarget "tweejump" */ = {
+		F49E74C915ACCF4A009C8E84 /* Build configuration list for PBXNativeTarget "HorseJump" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F49E74CA15ACCF4A009C8E84 /* Debug */,
