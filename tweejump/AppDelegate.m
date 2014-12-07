@@ -116,6 +116,15 @@
     
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene: [Game scene]];
+    
+    // iphone
+    
+    // 设计尺寸width、height
+    float visibleSizeWidth = 960;
+    float visibleSizeHeight = 640;
+    
+    BOOL isiPhone5 = CGSizeEqualToSize([[UIScreen mainScreen] preferredMode].size,CGSizeMake(640, 1136));
+    
 }
 
 
