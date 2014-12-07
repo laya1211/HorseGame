@@ -16,6 +16,9 @@
 #import "RootViewController.h"
 #import "GameConfig.h"
 
+#import "GADBannerView.h"
+#import "GADRequest.h"
+
 @implementation RootViewController
 
 /*
@@ -38,9 +41,170 @@
  // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
  - (void)viewDidLoad {
 	[super viewDidLoad];
+ 
  }
  */
 
+- (void)initGADBannerWithAdPositionAtTop:(BOOL)isAdPositionAtTop {
+    isAdPositionAtTop_ = isAdPositionAtTop;
+    
+    // NOTE:
+    // Add your publisher ID here and fill in the GADAdSize constant for the ad
+    // you would like to request.
+    bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    //bannerView_.adUnitID = @"pub-9137017936591748";
+    bannerView_.adUnitID = @"ca-app-pub-9137017936591748/9749421316";
+    bannerView_.delegate = self;
+    [bannerView_ setRootViewController:self];
+    
+    //默认不显示
+    //bannerView_.hidden = true;
+    
+    isADReady = false;
+    
+    [self.view addSubview:bannerView_];
+    [bannerView_ loadRequest:[self createRequest]];
+
+    // Use the status bar orientation since we haven't signed up for orientation
+    // change notifications for this class.
+    [self resizeViewsForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(amShowADBanner) name:@"amShowADBanner" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(amHideADBanner) name:@"amHideADBanner" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(amReloadADBanner) name:@"amReloadADBanner" object:nil];
+
+}
+
+
+- (void)resizeViewsForOrientation:(UIInterfaceOrientation)toInt {
+    // If the banner hasn't been created yet, no need for resizing views.
+    if (!bannerView_) {
+        return;
+    }
+    
+    BOOL adIsShowing = [self.view.subviews containsObject:bannerView_];
+    if (!adIsShowing) {
+        return;
+    }
+    
+    // Frame of the main RootViewController which we call the root view.
+    CGRect rootViewFrame = self.view.frame;
+    // Frame of the main RootViewController view that holds the Cocos2D view.
+    CGRect glViewFrame = [[CCDirector sharedDirector] openGLView].frame;
+    CGRect bannerViewFrame = bannerView_.frame;
+    CGRect frame = bannerViewFrame;
+    // The updated x and y coordinates for the origin of the banner.
+    CGFloat yLocation = 0.0;
+    CGFloat xLocation = 0.0;
+    
+    if (isAdPositionAtTop_) {
+        // Move the root view underneath the ad banner.
+        glViewFrame.origin.y = bannerViewFrame.size.height;
+        // Center the banner using the value of the origin.
+        if (UIInterfaceOrientationIsLandscape(toInt)) {
+            // The superView has not had its width and height updated yet so use those
+            // values for the x and y of the new origin respectively.
+            xLocation = (rootViewFrame.size.height -
+                         bannerViewFrame.size.width) / 2.0;
+        } else {
+            xLocation = (rootViewFrame.size.width -
+                         bannerViewFrame.size.width) / 2.0;
+        }
+    } else {
+        // Move the root view to the top of the screen.
+        glViewFrame.origin.y = 0;
+        // Need to center the banner both horizontally and vertically.
+        if (UIInterfaceOrientationIsLandscape(toInt)) {
+            yLocation = rootViewFrame.size.width -
+            bannerViewFrame.size.height;
+            xLocation = (rootViewFrame.size.height -
+                         bannerViewFrame.size.width) / 2.0;
+        } else {
+            yLocation = rootViewFrame.size.height -
+            bannerViewFrame.size.height;
+            xLocation = (rootViewFrame.size.width -
+                         bannerViewFrame.size.width) / 2.0;
+        }
+    }
+    frame.origin = CGPointMake(xLocation, yLocation);
+    bannerView_.frame = frame;
+   
+    /*
+    if (UIInterfaceOrientationIsLandscape(toInt)) {
+        // The super view's frame hasn't been updated so use its width
+        // as the height.
+        glViewFrame.size.height = rootViewFrame.size.width -
+        bannerViewFrame.size.height;
+        glViewFrame.size.width = rootViewFrame.size.height;
+    } else {
+        glViewFrame.size.height = rootViewFrame.size.height -
+        bannerViewFrame.size.height;
+    }
+    //*/
+    [[CCDirector sharedDirector] openGLView].frame = glViewFrame;
+    
+}
+
+#pragma mark GADBannerViewDelegate impl
+
+- (GADRequest *)createRequest {
+    GADRequest *request = [GADRequest request];
+    
+    // Make the request for a test ad. Put in an identifier for the simulator as
+    // well as any devices you want to receive test ads.
+    request.testDevices =
+    [NSArray arrayWithObjects:
+     // TODO: Add your device/simulator test identifiers here. They are
+     // printed to the console when the app is launched.
+     nil];
+    return request;
+}
+
+#pragma mark GADBannerViewDelegate impl
+
+- (void)adViewDidReceiveAd:(GADBannerView *)adView {
+    NSLog(@"Received ad");
+    
+    isADReady = true;
+}
+
+- (void)adView:(GADBannerView *)view
+didFailToReceiveAdWithError:(GADRequestError *)error {
+    NSLog(@"Failed to receive ad with error: %@", [error localizedFailureReason]);
+}
+
+
+#pragma mark - show or hide adview
+-(void)amHideADBanner
+{
+    if (!bannerView_) {
+        return;
+    }
+    bannerView_.hidden = true;
+}
+-(void)amShowADBanner
+{
+    if (!bannerView_) {
+        return;
+    }
+    bannerView_.hidden = false;
+}
+
+-(void)amReloadADBanner
+{
+    if (!bannerView_) {
+        return;
+    }
+    if (isADReady) {
+        [bannerView_ loadRequest:[self createRequest]];
+        //isADReady = false;
+    }
+
+}
+
+#pragma mark -
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

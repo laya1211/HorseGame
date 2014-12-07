@@ -18,8 +18,11 @@
 	BOOL birdLookingRight;
 	
 	int score;
+    
+    int scoreSound;
 }
 
 + (CCScene *)scene;
++ (CCScene *)scene:(int)inum;
 
 @end

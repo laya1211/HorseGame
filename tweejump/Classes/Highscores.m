@@ -78,15 +78,22 @@
 		if(count == 10) break;
 	}
 
-	CCMenuItem *button1 = [CCMenuItemImage itemFromNormalImage:@"playAgainButton.png" selectedImage:@"playAgainButton.png" target:self selector:@selector(button1Callback:)];
+	CCMenuItem *button1 = [CCMenuItemImage itemFromNormalImage:@"playAgainButton4.png" selectedImage:@"playAgainButton4.png" target:self selector:@selector(button1Callback:)];
 	CCMenuItem *button2 = [CCMenuItemImage itemFromNormalImage:@"changePlayerButton.png" selectedImage:@"changePlayerButton.png" target:self selector:@selector(button2Callback:)];
 	
 	CCMenu *menu = [CCMenu menuWithItems: button1, button2, nil];
 
-	[menu alignItemsVerticallyWithPadding:9];
-	menu.position = ccp(160,58);
+	//[menu alignItemsVerticallyWithPadding:9];
+    [menu alignItemsHorizontallyWithPadding:9];
+	menu.position = ccp(160,78);
 	
 	[self addChild:menu];
+    
+    //显示广告
+    [self showAD:true];
+    
+    //播放马声
+    [[SimpleAudioEngine sharedEngine] playEffect:@"马-END.wav"];
 	
 	return self;
 }
@@ -179,34 +186,23 @@
 - (void)button1Callback:(id)sender {
 //	NSLog(@"button1Callback");
 
-	CCTransitionScene *ts = [CCTransitionFade transitionWithDuration:0.5f scene:[Game scene] withColor:ccWHITE];
+	CCTransitionScene *ts = [CCTransitionFade transitionWithDuration:0.5f scene:[Game scene:currentScore] withColor:ccWHITE];
 	[[CCDirector sharedDirector] replaceScene:ts];
+    
+    //重新加载AD
+    [self reloadAD];
 }
 
 - (void)button2Callback:(id)sender {
 //	NSLog(@"button2Callback");
-	
-	changePlayerAlert = [UIAlertView new];
-	changePlayerAlert.title = @"修改名称";
-	changePlayerAlert.message = @"\n";
-	changePlayerAlert.delegate = self;
-	[changePlayerAlert addButtonWithTitle:@"保存"];
-	[changePlayerAlert addButtonWithTitle:@"取消"];
-
-	changePlayerTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 45, 245, 27)];
-	changePlayerTextField.borderStyle = UITextBorderStyleRoundedRect;
-	[changePlayerAlert addSubview:changePlayerTextField];
-//	changePlayerTextField.placeholder = @"Enter your name";
-//	changePlayerTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-	changePlayerTextField.keyboardType = UIKeyboardTypeDefault;
-	changePlayerTextField.returnKeyType = UIReturnKeyDone;
-	changePlayerTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-	changePlayerTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-	changePlayerTextField.delegate = self;
-	[changePlayerTextField becomeFirstResponder];
-
-	[changePlayerAlert show];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"修改名称" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil] ;
+    alertView.tag = 2;
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    alertView.delegate = self;
+    [alertView show];
 }
+
 
 - (void)draw {
 	[super draw];
@@ -242,12 +238,12 @@
 	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
-- (void)changePlayerDone {
-	currentPlayer = [changePlayerTextField.text retain];
+- (void)changePlayerDone:(NSString*)pname {
+    currentPlayer = pname;//[changePlayerTextField.text retain];
 	[self saveCurrentPlayer];
 	if(currentScorePosition >= 0) {
 		[highscores removeObjectAtIndex:currentScorePosition];
-		[highscores addObject:[NSArray arrayWithObjects:@"tweejump",[NSNumber numberWithInt:0],nil]];
+		[highscores addObject:[NSArray arrayWithObjects:@"HorseJump",[NSNumber numberWithInt:0],nil]];
 		[self saveHighscores];
 		[[CCDirector sharedDirector] replaceScene:
          [CCTransitionFade transitionWithDuration:1 scene:[Highscores sceneWithScore:currentScore] withColor:ccWHITE]];
@@ -257,8 +253,11 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 //	NSLog(@"alertView:clickedButtonAtIndex: %i",buttonIndex);
 	
-	if(buttonIndex == 0) {
-		[self changePlayerDone];
+    UITextField * alertTextField = [alertView textFieldAtIndex:0];
+    NSLog(@"alerttextfiled - %@",alertTextField.text);
+    
+	if(buttonIndex == 1) {
+        [self changePlayerDone:alertTextField.text];
 	} else {
 		// nothing
 	}
@@ -267,7 +266,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 //	NSLog(@"textFieldShouldReturn");
 	[changePlayerAlert dismissWithClickedButtonIndex:0 animated:YES];
-	[self changePlayerDone];
+    [self changePlayerDone:textField.text];
 	return YES;
 }
 

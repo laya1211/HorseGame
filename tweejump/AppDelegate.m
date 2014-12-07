@@ -97,6 +97,7 @@
 	
 	// make the View Controller a child of the main window
 	[window addSubview: viewController.view];
+    [viewController initGADBannerWithAdPositionAtTop:false];
 	
 	[window makeKeyAndVisible];
 	
@@ -109,6 +110,10 @@
 	// Removes the startup flicker
 	[self removeStartupFlicker];
 	
+    
+    //application.statusBarHidden = true;
+    [application setStatusBarHidden:YES withAnimation:YES];
+    
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene: [Game scene]];
 }

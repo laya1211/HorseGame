@@ -8,9 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GADBannerViewDelegate.h"
 
-@interface RootViewController : UIViewController {
+@class GADBannerView, GADRequest;
 
+@interface RootViewController : UIViewController <GADBannerViewDelegate> {
+    @private
+        GADBannerView *bannerView_;
+        BOOL isAdPositionAtTop_;
+    
+    BOOL isADReady;
 }
+
+- (GADRequest *)createRequest;
+- (void)initGADBannerWithAdPositionAtTop:(BOOL)isAdPositionAtTop;
+- (void)resizeViewsForOrientation:(UIInterfaceOrientation)toInt;
 
 @end

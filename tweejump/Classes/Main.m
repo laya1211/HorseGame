@@ -122,4 +122,19 @@
 	
 }
 
+- (void)showAD:(BOOL)show
+{
+    if (show) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"amShowADBanner" object:nil];
+    }
+    else
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"amHideADBanner" object:nil];
+}
+
+- (void)reloadAD
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"amReloadADBanner" object:nil];
+}
+
+
 @end

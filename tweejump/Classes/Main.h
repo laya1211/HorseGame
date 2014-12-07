@@ -1,4 +1,5 @@
 #import "cocos2d.h"
+#import "SimpleAudioEngine.h"
 
 //#define RESET_DEFAULTS
 
@@ -38,4 +39,7 @@ enum {
 - (void)resetClouds;
 - (void)resetCloud;
 - (void)step:(ccTime)dt;
+
+- (void)showAD:(BOOL)show;
+- (void)reloadAD;
 @end

@@ -18,14 +18,28 @@
 
 @implementation Game
 
-+ (CCScene *)scene
++ (CCScene *)scene:(int)inum
 {
     CCScene *game = [CCScene node];
     
     Game *layer = [Game node];
     [game addChild:layer];
+
     
+    int itime = inum % 2;
+    
+    if (itime == 0) {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"马-BEGIN1.WAV"];
+    }
+    else
+        [[SimpleAudioEngine sharedEngine] playEffect:@"马-BEGIN2.WAV"];
+
     return game;
+}
+
++ (CCScene *)scene
+{
+    return [Game scene:0];
 }
 
 - (id)init {
@@ -70,6 +84,11 @@
 	
 	[self startGame];
 	
+    
+    [self showAD:false];
+    
+    scoreSound = 1;
+    
 	return self;
 }
 
@@ -360,14 +379,84 @@
 
 		CCLabelBMFont *scoreLabel = (CCLabelBMFont*)[self getChildByTag:kScoreLabel];
 		[scoreLabel setString:scoreStr];
+        
+        [self playScoreSound];
 	}
 	
 	bird.position = bird_pos;
 }
 
+- (void)playStepSound
+{
+    int i=score % 5+1;
+    
+    NSString *strSound = [NSString stringWithFormat:@"step%d.wav",i];
+    [[SimpleAudioEngine sharedEngine] playEffect:strSound];
+    
+}
+
+- (void)playScoreSound
+{
+    int sscore = scoreSound * 1000;
+    
+    //达到1000的倍数，播放声音
+    if (score >= sscore) {
+        
+        if (scoreSound %2 == 1) {
+             [[SimpleAudioEngine sharedEngine] playEffect:@"马-BEGIN1.WAV"];
+        }
+        else
+            [[SimpleAudioEngine sharedEngine] playEffect:@"马-BEGIN2.WAV"];
+        
+
+        scoreSound = score /1000 + 1 ;
+        
+        
+        NSString *scoreStr = [NSString stringWithFormat:@"%d",score];
+        CCLabelBMFont *scoreLabel = (CCLabelBMFont*)[self getChildByTag:kScoreLabel];
+        [scoreLabel setString:scoreStr];
+        id a1 = [CCScaleTo actionWithDuration:0.2f scaleX:1.5f scaleY:0.8f];
+        id a2 = [CCScaleTo actionWithDuration:0.2f scaleX:1.0f scaleY:1.0f];
+        id a3 = [CCSequence actions:a1,a2,a1,a2,a1,a2,nil];
+        [scoreLabel runAction:a3];
+        [self resetBonus];
+        
+    }
+    
+//    switch (scoreSound) {
+//        case 0:
+//            sscore = 1000;
+//            break;
+//            
+//        case 1:
+//            sscore = 2000;
+//            break;
+//            
+//        case 2:
+//            sscore = 3000;
+//            break;
+//        case 3:
+//            sscore = 5000;
+//            break;
+//        case 4:
+//            sscore = 8000;
+//            break;
+//        case 5:
+//            sscore = 10000;
+//            break;
+//            
+//        default:
+//            break;
+//    }
+}
+
 - (void)jump {
 	bird_vel.y = 350.0f + fabsf(bird_vel.x);
+    
+    [self playStepSound];
 }
+
+
 
 - (void)showHighscores {
 //	NSLog(@"showHighscores");
